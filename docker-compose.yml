@@ -11,9 +11,9 @@ services:
         published: 80
         protocol: tcp
         mode: host
-    environment:
-      SECRET_KEY: django-insecure-&9dcay#1&4-j2#jw^f&$gh&gt+z3e@kk-y0dhra#07^=t&u*n%
-      DEBUG: "False"
-      ALLOWED_HOSTS: 'localhost,127.0.0.1,*'
-      STRIPE_SECRET_KEY: sk_test_51MdtwFIhNXOyrXtCvdoSvgxX6R7ZNR9Ei0pWlWvnG6BHFjxtBY6m68cVBgt5bpnytgtTKHYWXvef5SFmvgXE8MmA00EXoiT2D6
-      STRIPE_PUBLIC_KEY: pk_test_51MdtwFIhNXOyrXtCThnq0U67jWcBLyYCEPxterHXILOJspvRwIuUn1fZB82hybfEkwImYaFxAVI44rKJBcTYtcHs00iVlTysMP
+    healthcheck:
+      test: curl --fail http://localhost || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
