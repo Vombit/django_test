@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/test_task
     ports:
-      - "80:8080"
+      - "8080:80"
     environment:
       SECRET_KEY: django-insecure-&9dcay#1&4-j2#jw^f&$gh&gt+z3e@kk-y0dhra#07^=t&u*n%
       DEBUG: "False"
