@@ -16,3 +16,9 @@
 ### Use Docker
 * `docker-compose up`
 * Starting server at http://localhost:8000/
+
+
+
+
+You can use pages `http://localhost:8000/item/i` 
+(i = 1-6)
