@@ -3,11 +3,11 @@ version: '3'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:80
+    command: python manage.py runserver 0.0.0.0:8080
     volumes:
       - .:/test_task
     ports:
-      - "80:80"
+      - "80:8080"
     environment:
       SECRET_KEY: django-insecure-&9dcay#1&4-j2#jw^f&$gh&gt+z3e@kk-y0dhra#07^=t&u*n%
       DEBUG: "False"
