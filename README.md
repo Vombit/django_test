@@ -2,7 +2,7 @@
 
 установить python:3.9
 
-[![NodeJS](https://github.com/Vombit/django_test/actions/workflows/django.yml/badge.svg)](https://github.com/Vombit/django_test/actions/workflows/django.yml) [![Docker](https://github.com/Vombit/Device_Moving_View/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Vombit/Device_Moving_View/actions/workflows/docker-image.yml)
+[![Docker](https://github.com/Vombit/Device_Moving_View/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Vombit/Device_Moving_View/actions/workflows/docker-image.yml)
 
 ### Use Python
 #### Install
