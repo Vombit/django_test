@@ -11,4 +11,5 @@ services:
         published: 80
         protocol: tcp
         mode: host
+    image: web
     healthcheck: disable
