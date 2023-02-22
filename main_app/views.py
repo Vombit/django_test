@@ -12,7 +12,7 @@ def buy(request, id):
         payment_method_types=['card'],
         line_items=[{
             'price_data': {
-                'currency': 'rub',
+                'currency': item.currency,
                 'product_data': {
                     'name': item.name,
                     'description': item.description,

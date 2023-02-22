@@ -2,8 +2,8 @@ from django.db import models
 
 class Item(models.Model):
     cur = (
-    ('rub', '₽'),
-    ('usd', '$'),
+    ('rub', 'rub'),
+    ('usd', 'usd'),
     )
     name = models.CharField(max_length=255)
     description = models.TextField()
