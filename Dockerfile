@@ -1,6 +1,5 @@
 FROM python:3.9
 
-ENV PYTHONUNBUFFERED 1
 
 RUN mkdir /test_task
 WORKDIR /test_task
