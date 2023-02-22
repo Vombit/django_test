@@ -9,18 +9,21 @@
 
 #### Finish
 * Run `python .\manage.py runserver`
-* Starting server at http://localhost:8000/
-##### You can use pages `http://localhost:8000/item/i` (i = 1-6)
+* Starting server at http://localhost:80/
+* Admin panel `http://localhost:8000/admin` (admin:admin)
+##### You can use pages `http://localhost:80/item/i` (i = 1-6)
 
 
 
 ## Use Docker
 * `docker-compose up`
-* Starting server at http://localhost:8000/
-##### You can use pages `http://localhost:8000/item/i` (i = 1-6)
+* Starting server at http://localhost:80/
+* Admin panel `http://localhost:8000/admin` (admin:admin)
+##### You can use pages `http://localhost:80/item/i` (i = 1-6)
 
 
 
 ## Test server
 * https://djangotestwork1-vombit.b4a.run/item/1
 ##### For example you can use `https://djangotestwork1-vombit.b4a.run/item/i` (where i = 1-6)
+* Admin panel `[http://localhost:8000](https://djangotestwork1-vombit.b4a.run)/admin` (admin:admin)
