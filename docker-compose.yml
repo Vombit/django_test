@@ -3,13 +3,8 @@ version: '3'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:80
-    volumes:
-      - .:/test_task
     ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host
+      - '80:80'
     image: web
     healthcheck: disable
+    command: python manage.py runserver 0.0.0.0:80
