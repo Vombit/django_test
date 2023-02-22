@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Заказы</title>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+
+    <h1>Items</h1>
+    <select name="items" multiple>
+        {% for item in item %}
+            <option value="{{ item.id }}">{{ item.name }}</option>
+        {% endfor %}
+    </select>
+
+    <button id="buy-button">Buy</button>
+
+    <script type="text/javascript">
+        var el = document.getElementsByTagName('select')[0];
+        
+        var stripe = Stripe('{{ key }}');
+        var buyButton = document.getElementById('buy-button');
+        buyButton.addEventListener('click', function() {
+            console.log(getSelectValues(el));
+            // fetch('/buy/{{ item.id }}')
+            // .then(response => {
+            //     return response.json();
+            // })
+            // .then(session => {
+            //     stripe.redirectToCheckout({sessionId: session.id})
+            // })
+        })
+    </script>
+  </body>
+</html>

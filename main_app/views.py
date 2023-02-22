@@ -37,4 +37,10 @@ def item(request, id):
 
 
 def order(request, id):
-    pass
+    item = Item.objects.all()
+
+    context = {
+            'item': item,
+            'key': settings.STRIPE_PUBLIC_KEY
+            }
+    return render(request, 'main_app/orders.html', context)
