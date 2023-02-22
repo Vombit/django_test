@@ -9,5 +9,3 @@ COPY requirements.txt /test_task/
 RUN pip install -r requirements.txt
 
 COPY . /test_task/
-
-EXPOSE 80
