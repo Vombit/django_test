@@ -8,7 +8,6 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def buy(request, id):
-    print(request.META['HTTP_HOST'])
     item = Item.objects.get(id = id)
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
@@ -24,10 +23,9 @@ def buy(request, id):
             'quantity': 1,
         }],
         mode= 'payment',
-        success_url = 'http://0.0.0.0/success',
-        cancel_url = 'http://0.0.0.0/cancel',
+        success_url = f'http://{settings.HOST}/success',
+        cancel_url = f'http://{settings.HOST}/cancel',
     )
-    print(session.id)
     return JsonResponse({'id': session.id})
 
 def item(request, id):
