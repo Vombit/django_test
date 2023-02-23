@@ -6,7 +6,9 @@ from django.conf import settings
 import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 def buy(request, id):
+    print(request.META['HTTP_HOST'])
     item = Item.objects.get(id = id)
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
@@ -22,8 +24,8 @@ def buy(request, id):
             'quantity': 1,
         }],
         mode= 'payment',
-        success_url = 'http://localhost:8000/success/',
-        cancel_url = 'http://localhost:8000/cancel/',
+        success_url = 'http://0.0.0.0/success',
+        cancel_url = 'http://0.0.0.0/cancel',
     )
     print(session.id)
     return JsonResponse({'id': session.id})
@@ -36,7 +38,10 @@ def item(request, id):
             }
     return render(request, 'main_app/item.html', context)
 
-
+def cancel(request):
+    return JsonResponse({'payment': 'cancel'})
+def success(request):
+    return JsonResponse({'payment': 'success'})
 
 def create_payment_intent(amount, payment_method_id):
     print(payment_method_id)
@@ -78,3 +83,6 @@ def order(request):
             'key': settings.STRIPE_PUBLIC_KEY
             }
     return render(request, 'main_app/orders.html', context)
+
+
+
