@@ -10,7 +10,7 @@
 #### Finish
 * Run `python .\manage.py runserver`
 * Starting server at http://localhost:80/
-* Admin panel `http://localhost:8000/admin` (admin:admin)
+* Admin panel `http://localhost:80/admin` (admin:admin)
 ##### You can use pages `http://localhost:80/item/i` (i = 1-6)
 
 
@@ -18,7 +18,7 @@
 ## Use Docker
 * `docker-compose up`
 * Starting server at http://localhost:80/
-* Admin panel `http://localhost:8000/admin` (admin:admin)
+* Admin panel `http://localhost:80/admin` (admin:admin)
 ##### You can use pages `http://localhost:80/item/i` (i = 1-6)
 
 
