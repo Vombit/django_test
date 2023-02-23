@@ -15,19 +15,16 @@
     <button id="buy-button">Buy</button>
 
     <script type="text/javascript">
-        var el = document.getElementsByTagName('select')[0];
-        
         var stripe = Stripe('{{ key }}');
         var buyButton = document.getElementById('buy-button');
         buyButton.addEventListener('click', function() {
-            console.log(getSelectValues(el));
-            // fetch('/buy/{{ item.id }}')
-            // .then(response => {
-            //     return response.json();
-            // })
-            // .then(session => {
-            //     stripe.redirectToCheckout({sessionId: session.id})
-            // })
+            fetch('/payment_intent')
+            .then(response => {
+                return response.json();
+            })
+            .then(session => {
+                stripe.redirectToCheckout({sessionId: session.id})
+            })
         })
     </script>
   </body>

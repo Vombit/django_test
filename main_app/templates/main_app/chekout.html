@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Заказы</title>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+
+<form id="payment-form">
+  <input type="text" id="card-element"></input>
+  <div class="form-group">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" min="1" max="1000" required>
+  </div>
+  <button id="submit">Pay</button>
+</form>
+
+<script>
+
+var form = document.getElementById('payment-form');
+var submit = document.getElementById('submit');
+var stripe = Stripe('{{ settings.STRIPE_PUBLIC_KEY }}');
+var elements = stripe.elements();
+var cardElement = elements.create('card');
+cardElement.mount('#card-element');
+var { paymentMethod, error } = stripe.createPaymentMethod({
+  type: 'card',
+  card: cardElement
+});
+
+submit.addEventListener('click', function(event) {
+  event.preventDefault();
+  submit.disabled = true;
+  fetch('/payment_intent/', {
+    method: 'POST',
+    body: new FormData(form)
+  }).then(function(response) {
+    return response.json();
+  }).then(function(data) {
+
+    stripe.confirmCardPayment(data.client_secret, {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: 'John Doe'
+        }
+      }
+    }).then(function(result) {
+      if (result.error) {
+        alert(result.error.message);
+      } else {
+        alert('Payment successful!');
+      }
+      submit.disabled = false;
+    });
+  });
+});
+
+</script>
+</body>
+</html>
