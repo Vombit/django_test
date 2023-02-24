@@ -26,4 +26,4 @@
 ## Test server
 * https://djangotestwork1-vombit.b4a.run/item/1
 ##### For example you can use `https://djangotestwork1-vombit.b4a.run/item/i` (where i = 1-6)
-* Admin panel `https://djangotestwork1-vombit.b4a.run/admin` (admin:admin)
+* Admin panel https://djangotestwork1-vombit.b4a.run/admin (admin:admin)
